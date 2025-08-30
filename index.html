@@ -6,7 +6,8 @@
 <title>Supplementary Material</title>
 <meta name="theme-color" content="#2a2b5f" />
 <style>
-  :root {
+  /* ---------- COLOR PALETTE (Majorelle/dark) ---------- */
+  :root{
     --bg:#1c1b3a;
     --bg-alt:#23224a;
     --card:#2b2a5a;
@@ -16,111 +17,98 @@
     --accent-strong:#9f8fff;
     --ring:#3d3c72;
     --ink-dark:#16162f;
+    --logo:url("assets/university_logo.png"); /* background watermark */
   }
-  *{box-sizing:border-box;}
-  html,body{margin:0;padding:0;background:var(--bg);color:var(--ink);font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial,"Noto Sans";}
-  a{color:inherit;text-decoration:none;}
-  .wrap{max-width:1040px;margin:0 auto;padding:20px;}
+
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0;background:var(--bg);color:var(--ink);font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial,"Noto Sans")}
+  a{color:inherit;text-decoration:none}
+
+  /* ---------- Background logo (fondale) ---------- */
+  body::before{
+    content:"";
+    position:fixed; inset:0; pointer-events:none; z-index:0;
+    background:
+      radial-gradient(ellipse at 50% 40%, rgba(124,108,240,.12), rgba(124,108,240,0) 60%),
+      var(--logo) no-repeat center/ min(60vw,60vh) auto;
+    opacity:.08;
+    filter:saturate(0.2) brightness(1.2);
+  }
+
+  .wrap{position:relative; z-index:1; max-width:1200px; margin:0 auto; padding:20px}
+
+  /* ---------- Header ---------- */
   header{
-    display:flex;gap:12px;align-items:center;justify-content:space-between;
+    display:flex; gap:12px; align-items:center; justify-content:space-between;
     padding:14px 0 16px;
-    position:sticky;top:0;
+    position:sticky; top:0; z-index:5;
     backdrop-filter:blur(6px);
-    background:rgba(28,27,58,0.85);
-    z-index:10;
+    background:linear-gradient(180deg, rgba(28,27,58,.9), rgba(28,27,58,.7));
     border-bottom:1px solid var(--ring);
   }
-  .title h1{margin:0;font-size:22px;color:var(--accent);}
-  
-  /* LOGO STYLE: bigger, no box */
-  .logo{
-    height:64px;              /* bigger by default */
-    width:auto;               /* scale proportionally */
-    object-fit:contain;       /* never stretched */
-    border:none;              /* no border */
-    border-radius:0;          /* no rounded box */
-    background:transparent;   /* no background */
+  .title h1{margin:0;font-size:22px;color:var(--accent)}
+
+  /* ---------- Tabs ---------- */
+  .toc{margin-top:10px; display:flex; gap:10px; flex-wrap:wrap}
+  .chip{
+    padding:8px 14px; border:1px solid var(--ring); border-radius:999px; cursor:pointer;
+    font-weight:600; font-size:14px; transition:all .15s ease; user-select:none; background:rgba(255,255,255,.02)
   }
+  .chip:hover{border-color:var(--accent); color:var(--accent)}
+  .chip.active{background:var(--accent); color:var(--ink-dark); border-color:var(--accent)}
 
-  .toc{margin-top:10px;display:flex;gap:10px;flex-wrap:wrap;}
-  .chip{padding:8px 14px;border:1px solid var(--ring);border-radius:999px;cursor:pointer;font-weight:600;font-size:14px;transition:all .15s ease;}
-  .chip:hover{border-color:var(--accent);color:var(--accent);}
-  .chip.active{background:var(--accent);color:var(--ink-dark);border-color:var(--accent);}
-  .section{margin-top:22px;}
-  .section h2{margin:8px 0 12px;font-size:20px;color:var(--accent-strong);}
-  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:18px;margin-top:10px;}
-  .card{border:1px solid var(--ring);background:var(--card);border-radius:16px;padding:14px;display:flex;flex-direction:column;gap:10px;transition:transform .08s ease,border-color .15s ease;box-shadow:0 2px 6px rgba(0,0,0,.25);}
-  .card:hover{transform:translateY(-3px);border-color:var(--accent);}
-  .media{position:relative;border-radius:12px;overflow:hidden;background:#0f0f2a;display:flex;align-items:center;justify-content:center;border:1px solid var(--ring);aspect-ratio:16/9;}
-  .media video{width:100%;height:100%;object-fit:cover;display:block;}
-  .name{font-weight:700;font-size:17px;margin:0;}
-  .badge{font-size:12px;color:var(--ink-dark);background:var(--accent);border-radius:999px;padding:4px 8px;font-weight:700;width:fit-content;}
-  .links{display:flex;gap:10px;flex-wrap:wrap;}
-  .link{display:inline-flex;align-items:center;gap:6px;padding:8px 12px;border:1px solid var(--ring);border-radius:12px;font-size:13px;background:rgba(255,255,255,0.02);transition:all .15s ease;}
-  .link:hover{border-color:var(--accent);color:var(--accent);}
-  .foot{opacity:.65;font-size:12px;margin:22px 0 6px;text-align:center;}
-  /* … keep your palette + header styles as before … */
+  /* ---------- Section ---------- */
+  .section{margin-top:18px}
+  .section h2{margin:8px 0 12px; font-size:20px; color:var(--accent-strong)}
 
-  .grid {
+  /* ---------- Larger videos layout ---------- */
+  .grid{
     display:grid;
-    grid-template-columns: 1fr; /* one big video per row */
+    grid-template-columns:1fr;    /* one big video per row by default */
     gap:24px;
     margin-top:14px;
   }
-
-  .card {
-    border:1px solid var(--ring);
-    background:var(--card);
-    border-radius:16px;
-    padding:16px;
-    display:flex;
-    flex-direction:column;
-    gap:12px;
-    transition: transform .08s ease,border-color .15s ease;
-    box-shadow:0 2px 8px rgba(0,0,0,.25);
-  }
-  .card:hover { transform:translateY(-2px); border-color:var(--accent); }
-
-  .media {
-    position:relative;
-    border-radius:12px;
-    overflow:hidden;
-    background:#0f0f2a;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    border:1px solid var(--ring);
-    aspect-ratio:16/9;   /* widescreen */
-  }
-  .media video {
-    width:100%;
-    height:100%;
-    object-fit:cover;
-    display:block;
+  @media (min-width: 1200px){
+    .grid{ grid-template-columns: 1fr 1fr } /* two-up on wide screens */
   }
 
-  /* responsive: on wide screens, allow 2 videos side by side */
-  @media (min-width: 1100px) {
-    .grid { grid-template-columns: repeat(2, 1fr); }
+  /* ---------- Card & media ---------- */
+  .card{
+    border:1px solid var(--ring); background:var(--card);
+    border-radius:16px; padding:16px; display:flex; flex-direction:column; gap:12px;
+    transition:transform .08s ease, border-color .15s ease; box-shadow:0 2px 8px rgba(0,0,0,.25)
   }
-</style>
+  .card:hover{ transform:translateY(-2px); border-color:var(--accent) }
+  .name{font-weight:700; font-size:17px; margin:0}
+  .badge{font-size:12px; color:var(--ink-dark); background:var(--accent); border-radius:999px; padding:4px 8px; font-weight:700}
 
+  .media{
+    position:relative; border-radius:12px; overflow:hidden;
+    background:#0f0f2a; border:1px solid var(--ring);
+    aspect-ratio:16/9; display:flex; align-items:center; justify-content:center;
+  }
+  .media video{width:100%; height:100%; object-fit:cover; display:block}
+
+  .controlsRow{display:flex; gap:10px; flex-wrap:wrap}
+  .link{display:inline-flex; align-items:center; gap:6px; padding:8px 12px; border:1px solid var(--ring); border-radius:12px; font-size:13px; background:rgba(255,255,255,.02)}
+  .link:hover{border-color:var(--accent); color:var(--accent)}
+
+  .foot{opacity:.65; font-size:12px; margin:22px 0 6px; text-align:center}
 </style>
 </head>
 <body>
 <div class="wrap">
   <header>
     <div class="title"><h1>Supplementary Material</h1></div>
-    <img class="logo" src="logo_poli.png" alt="University logo"/>
+    <!-- no global pause/play; each video has its own controls -->
   </header>
 
   <nav class="toc" id="toc"></nav>
 
   <div id="sectionView" class="section"></div>
 
-  <p class="foot">All clips loop automatically. Download links available for offline viewing.</p>
+  <p class="foot">Clips autoplay muted and loop. Use each video’s controls to pause or scrub. Download links provided for offline viewing.</p>
 </div>
-
 
 <script>
   // ---------- EDIT THIS DATA ----------
@@ -151,32 +139,39 @@
       items: [
         { title: "ELOPE 0000", file: "videos/reconstructed_0003.mp4"},
         { title: "ELOPE 0008", file: "videos/reconstructed_0007.mp4"},
-        { title: "ELOPE 0013", file: "videos/reconstructed_0013.mp4"},
-        { title: "ELOPE 0015", file: "videos/reconstructed_0015.mp4"},
-        { title: "ELOPE 0016", file: "videos/reconstructed_0016.mp4"},
+        { title: "ELOPE 0013", file: "videos/reconstructed_0013"},
+        { title: "ELOPE 0015", file: "videos/reconstructed_0015"},
+        { title: "ELOPE 0016", file: "videos/reconstructed_0016"},
+      ]
+    },
+    {
+      name: "Splats",
+      items: [
+        { title: "ELOPE 0000", file: "videos/reconstructed_0003.mp4"},
       ]
     }
   ];
   // ---------- STOP EDITING ----------
 
-  const ALL_LABEL = "All";
-  const ALL = { name: ALL_LABEL, items: SECTIONS.flatMap(s => s.items) };
+  // Build real sections with "All" synthesized from the others
+  const baseSections = SECTIONS.filter(s => s.name !== "All");
+  const ALL = { name: "All", items: baseSections.flatMap(s => s.items) };
+  const TABS = [ALL, ...baseSections];
 
   const toc = document.getElementById("toc");
   const view = document.getElementById("sectionView");
 
   function chip(label, active){
-    const a = document.createElement("div");
-    a.className = "chip" + (active ? " active" : "");
-    a.textContent = label;
-    a.onclick = ()=> navigate(label);
-    return a;
+    const el = document.createElement("div");
+    el.className = "chip" + (active ? " active" : "");
+    el.textContent = label;
+    el.onclick = ()=> navigate(label);
+    return el;
   }
 
   function renderTOC(active){
     toc.innerHTML = "";
-    toc.appendChild(chip(ALL_LABEL, active === ALL_LABEL));
-    SECTIONS.forEach(s => toc.appendChild(chip(s.name, active === s.name)));
+    TABS.forEach(s => toc.appendChild(chip(s.name, active === s.name)));
   }
 
   function makeCard(item){
@@ -184,51 +179,59 @@
     card.className = "card";
 
     const head = document.createElement("div");
-    head.style.display="flex";head.style.justifyContent="space-between";head.style.alignItems="center";
-    const name = document.createElement("h3");name.className="name";name.textContent=item.title;
-    const badge = document.createElement("div");badge.className="badge";badge.textContent="MP4";
-    head.appendChild(name);head.appendChild(badge);
+    head.style.display="flex"; head.style.justifyContent="space-between"; head.style.alignItems="center";
+    const name = document.createElement("h3"); name.className = "name"; name.textContent = item.title;
+    const badge = document.createElement("div"); badge.className = "badge"; badge.textContent = "MP4";
+    head.appendChild(name); head.appendChild(badge);
     card.appendChild(head);
 
-    const media=document.createElement("div");media.className="media";
-    const video=document.createElement("video");
-    video.src=item.file;
-    video.autoplay=true;
-    video.loop=true;
-    video.muted=true;
-    video.playsInline=true;
+    const media = document.createElement("div"); media.className = "media";
+    const video = document.createElement("video");
+    video.src = item.file;
+    video.autoplay = true;
+    video.loop = true;
+    video.muted = true;
+    video.playsInline = true;
+    video.controls = true;    // individual pause/scrub
     media.appendChild(video);
     card.appendChild(media);
 
-    const links=document.createElement("div");links.className="links";
-    const dl=document.createElement("a");dl.className="link";dl.href=item.file;dl.setAttribute("download","");dl.textContent="Download MP4";
-    links.appendChild(dl);
-    card.appendChild(links);
+    const row = document.createElement("div"); row.className = "controlsRow";
+    const dl = document.createElement("a"); dl.className = "link"; dl.href = item.file; dl.setAttribute("download",""); dl.textContent = "Download MP4";
+    row.appendChild(dl);
+    card.appendChild(row);
 
     return card;
   }
 
   function renderSection(section){
-    view.innerHTML="";
-    const h2=document.createElement("h2");h2.textContent=section.name;view.appendChild(h2);
-    const grid=document.createElement("div");grid.className="grid";
-    section.items.forEach(item=>grid.appendChild(makeCard(item)));
+    view.innerHTML = "";
+    const h2 = document.createElement("h2"); h2.textContent = section.name; view.appendChild(h2);
+
+    const grid = document.createElement("div"); grid.className = "grid";
+    section.items.forEach(item => grid.appendChild(makeCard(item)));
     view.appendChild(grid);
   }
 
   function navigate(label){
-    const section=label===ALL_LABEL?ALL:SECTIONS.find(s=>s.name===label)||ALL;
+    const section = TABS.find(s => s.name === label) || ALL;
     renderTOC(label);
     renderSection(section);
-    history.replaceState(null,"","#"+encodeURIComponent(label.toLowerCase()));
-    window.scrollTo({top:0,behavior:"instant"});
+    history.replaceState(null, "", "#"+encodeURIComponent(label.toLowerCase()));
+    window.scrollTo({ top: 0, behavior: "instant" });
   }
 
-  const initial=decodeURIComponent(location.hash.replace(/^#/,"")).toLowerCase();
-  const startLabel=[ALL_LABEL.toLowerCase(),...SECTIONS.map(s=>s.name.toLowerCase())].includes(initial)
-    ?(initial===ALL_LABEL.toLowerCase()?ALL_LABEL:SECTIONS.find(s=>s.name.toLowerCase()===initial).name)
-    :ALL_LABEL;
-  renderTOC(startLabel);navigate(startLabel);
+  const initial = decodeURIComponent(location.hash.replace(/^#/, "")).toLowerCase();
+  const startLabel = TABS.map(s=>s.name.toLowerCase()).includes(initial)
+    ? TABS.find(s=>s.name.toLowerCase()===initial).name
+    : "All";
+
+  renderTOC(startLabel);
+  navigate(startLabel);
 </script>
 </body>
 </html>
+
+
+
+
