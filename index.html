@@ -6,142 +6,57 @@
 <title>Supplementary Material</title>
 <meta name="theme-color" content="#2a2b5f" />
 <style>
-  /* ---------- COLOR PALETTE ---------- */
   :root {
-    --bg:#1c1b3a;             /* dark background */
-    --bg-alt:#23224a;         /* lighter background for headers */
-    --card:#2b2a5a;           /* card background */
-    --ink:#f1f1f8;            /* main text */
-    --muted:#b4b3d6;          /* muted text */
-    --accent:#7c6cf0;         /* majorelle blue accent */
-    --accent-strong:#9f8fff;  /* lighter accent */
-    --ring:#3d3c72;           /* border lines */
+    --bg:#1c1b3a;
+    --bg-alt:#23224a;
+    --card:#2b2a5a;
+    --ink:#f1f1f8;
+    --muted:#b4b3d6;
+    --accent:#7c6cf0;
+    --accent-strong:#9f8fff;
+    --ring:#3d3c72;
     --ink-dark:#16162f;
   }
-
-  * { box-sizing: border-box; }
-  html, body {
-    margin:0; padding:0;
-    background:var(--bg);
-    color:var(--ink);
-    font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans";
-  }
-  a { color: inherit; text-decoration: none; }
-  .wrap { max-width: 1040px; margin: 0 auto; padding: 20px; }
-
-  /* ---------- HEADER ---------- */
-  header {
-    display:flex; gap:12px; align-items:center; justify-content:space-between;
-    padding:14px 0 16px;
-    position: sticky; top:0;
-    backdrop-filter: blur(6px);
-    background: rgba(28,27,58,0.85);
-    z-index:10;
-    border-bottom:1px solid var(--ring);
-  }
-  .title { font-weight:700; letter-spacing:.2px; display:flex; gap:10px; align-items:center; flex-wrap:wrap; }
-  .title h1 { margin:0; font-size:22px; color:var(--accent); }
-  .logo { height:42px; width:auto; border-radius:8px; border:1px solid var(--ring); background:var(--bg-alt); }
-
-  /* ---------- NAV ---------- */
-  .toc { margin-top:10px; display:flex; gap:10px; flex-wrap:wrap; }
-  .chip {
-    padding:8px 14px;
-    border:1px solid var(--ring);
-    border-radius:999px;
-    white-space:nowrap;
-    cursor:pointer;
-    user-select:none;
-    font-weight:600;
-    font-size:14px;
-    transition: all .15s ease;
-  }
-  .chip:hover { border-color:var(--accent); color:var(--accent); }
-  .chip.active {
-    background:var(--accent);
-    color:var(--ink-dark);
-    border-color:var(--accent);
-  }
-
-  /* ---------- SECTIONS ---------- */
-  .section { margin-top:22px; }
-  .section h2 { margin:8px 0 12px; font-size:20px; color:var(--accent-strong); }
-
-  .grid { display:grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap:18px; margin-top:10px; }
-
-  /* ---------- CARD ---------- */
-  .card {
-    border:1px solid var(--ring);
-    background:var(--card);
-    border-radius:16px;
-    padding:14px;
-    display:flex;
-    flex-direction:column;
-    gap:10px;
-    min-height:160px;
-    transition: transform .08s ease, border-color .15s ease;
-    box-shadow:0 2px 6px rgba(0,0,0,.25);
-  }
-  .card:hover { transform: translateY(-3px); border-color:var(--accent); }
-
-  .media {
-    position:relative;
-    border-radius:12px;
-    overflow:hidden;
-    background:#0f0f2a;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    border:1px solid var(--ring);
-    aspect-ratio:16/9;
-  }
-  .media video { width:100%; height:100%; object-fit:cover; display:block; background:#000; }
-
-  .name { font-weight:700; font-size:17px; letter-spacing:.2px; margin:0; }
-  .meta { display:flex; gap:8px; flex-wrap:wrap; align-items:center; color:var(--muted); font-size:12px; }
-  .badge {
-    font-size:12px;
-    color:var(--ink-dark);
-    background:var(--accent);
-    border-radius:999px;
-    padding:4px 8px;
-    font-weight:700;
-    width:fit-content;
-  }
-  .caption { color:var(--muted); font-size:13px; }
-
-  .links { display:flex; gap:10px; flex-wrap:wrap; }
-  .link {
-    display:inline-flex;
-    align-items:center;
-    gap:6px;
-    padding:8px 12px;
-    border:1px solid var(--ring);
-    border-radius:12px;
-    font-size:13px;
-    background:rgba(255,255,255,0.02);
-    transition: all .15s ease;
-  }
-  .link:hover { border-color:var(--accent); color:var(--accent); }
-
-  .foot { opacity:.65; font-size:12px; margin:22px 0 6px; text-align:center; }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;background:var(--bg);color:var(--ink);font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial,"Noto Sans";}
+  a{color:inherit;text-decoration:none;}
+  .wrap{max-width:1040px;margin:0 auto;padding:20px;}
+  header{display:flex;gap:12px;align-items:center;justify-content:space-between;padding:14px 0 16px;position:sticky;top:0;backdrop-filter:blur(6px);background:rgba(28,27,58,0.85);z-index:10;border-bottom:1px solid var(--ring);}
+  .title h1{margin:0;font-size:22px;color:var(--accent);}
+  .logo{height:42px;width:auto;border-radius:8px;border:1px solid var(--ring);background:var(--bg-alt);}
+  .toc{margin-top:10px;display:flex;gap:10px;flex-wrap:wrap;}
+  .chip{padding:8px 14px;border:1px solid var(--ring);border-radius:999px;cursor:pointer;font-weight:600;font-size:14px;transition:all .15s ease;}
+  .chip:hover{border-color:var(--accent);color:var(--accent);}
+  .chip.active{background:var(--accent);color:var(--ink-dark);border-color:var(--accent);}
+  .section{margin-top:22px;}
+  .section h2{margin:8px 0 12px;font-size:20px;color:var(--accent-strong);}
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:18px;margin-top:10px;}
+  .card{border:1px solid var(--ring);background:var(--card);border-radius:16px;padding:14px;display:flex;flex-direction:column;gap:10px;transition:transform .08s ease,border-color .15s ease;box-shadow:0 2px 6px rgba(0,0,0,.25);}
+  .card:hover{transform:translateY(-3px);border-color:var(--accent);}
+  .media{position:relative;border-radius:12px;overflow:hidden;background:#0f0f2a;display:flex;align-items:center;justify-content:center;border:1px solid var(--ring);aspect-ratio:16/9;}
+  .media video{width:100%;height:100%;object-fit:cover;display:block;}
+  .name{font-weight:700;font-size:17px;margin:0;}
+  .badge{font-size:12px;color:var(--ink-dark);background:var(--accent);border-radius:999px;padding:4px 8px;font-weight:700;width:fit-content;}
+  .links{display:flex;gap:10px;flex-wrap:wrap;}
+  .link{display:inline-flex;align-items:center;gap:6px;padding:8px 12px;border:1px solid var(--ring);border-radius:12px;font-size:13px;background:rgba(255,255,255,0.02);transition:all .15s ease;}
+  .link:hover{border-color:var(--accent);color:var(--accent);}
+  .foot{opacity:.65;font-size:12px;margin:22px 0 6px;text-align:center;}
 </style>
 </head>
 <body>
 <div class="wrap">
   <header>
-    <div class="title">
-      <h1>Supplementary Material</h1>
-    </div>
-    <img class="logo" src="assets/university_logo.png" alt="University logo" />
+    <div class="title"><h1>Supplementary Material</h1></div>
+    <img class="logo" src="logo_poli.png" alt="University logo"/>
   </header>
 
   <nav class="toc" id="toc"></nav>
 
   <div id="sectionView" class="section"></div>
 
-  <p class="foot">Videos are short H.264 MP4 clips with poster thumbnails. If a browser refuses to play inline, use the download link.</p>
+  <p class="foot">All clips loop automatically. Download links available for offline viewing.</p>
 </div>
+
 
 <script>
   // ---------- EDIT THIS DATA ----------
@@ -149,29 +64,32 @@
     {
       name: "Blender",
       items: [
-        { title: "Scene 1", file: "videos/blender_scene1.mp4", poster: "thumbs/blender_scene1.jpg", note: "Gaussian splatting reconstruction exported from Blender." },
-        { title: "Scene 2", file: "videos/blender_scene2.mp4", poster: "thumbs/blender_scene2.jpg", note: "Viewpoint sweep demonstrating consistency." }
+        { title: "SLAM", file: "videos/est_sequence_SLAM.mp4"},
+        { title: "Orbit", file: "videos/est_sequence_approach.mp4"}
       ]
     },
     {
       name: "Seenic",
       items: [
-        { title: "Sequence A", file: "videos/seenic_a.mp4", poster: "thumbs/seenic_a.jpg", note: "Seenic dataset clip A." },
-        { title: "Sequence B", file: "videos/seenic_b.mp4", poster: "thumbs/seenic_b.jpg", note: "Seenic dataset clip B." }
+        { title: "Sequence A", file: "videos/seenic_a.mp4"},
+        { title: "Sequence B", file: "videos/seenic_b.mp4"}
       ]
     },
     {
       name: "EMS",
       items: [
-        { title: "EMS 01", file: "videos/ems_01.mp4", poster: "thumbs/ems_01.jpg", note: "EMS evaluation clip 01." },
-        { title: "EMS 02", file: "videos/ems_02.mp4", poster: "thumbs/ems_02.jpg", note: "EMS evaluation clip 02." }
+        { title: "EMS 100", file: "videos/EMS_69.mp4"},
+        { title: "EMS 479", file: "videos/EMS_100.mp4"}
       ]
     },
     {
       name: "Elope",
       items: [
-        { title: "ELOPE Docking 1", file: "videos/elope_dock1.mp4", poster: "thumbs/elope_dock1.jpg", note: "ELOPE scenario: docking pass 1." },
-        { title: "ELOPE Docking 2", file: "videos/elope_dock2.mp4", poster: "thumbs/elope_dock2.jpg", note: "ELOPE scenario: docking pass 2." }
+        { title: "ELOPE 0000", file: "videos/reconstructed_0003.mp4"},
+        { title: "ELOPE 0008", file: "videos/reconstructed_0007.mp4"},
+        { title: "ELOPE 0013", file: "videos/reconstructed_0013"},
+        { title: "ELOPE 0015", file: "videos/reconstructed_0015"},
+        { title: "ELOPE 0016", file: "videos/reconstructed_0016"},
       ]
     }
   ];
@@ -202,55 +120,24 @@
     card.className = "card";
 
     const head = document.createElement("div");
-    head.style.display = "flex";
-    head.style.justifyContent = "space-between";
-    head.style.alignItems = "center";
-
-    const name = document.createElement("h3");
-    name.className = "name";
-    name.textContent = item.title;
-
-    const badge = document.createElement("div");
-    badge.className = "badge";
-    badge.textContent = "MP4";
-
-    head.appendChild(name);
-    head.appendChild(badge);
+    head.style.display="flex";head.style.justifyContent="space-between";head.style.alignItems="center";
+    const name = document.createElement("h3");name.className="name";name.textContent=item.title;
+    const badge = document.createElement("div");badge.className="badge";badge.textContent="MP4";
+    head.appendChild(name);head.appendChild(badge);
     card.appendChild(head);
 
-    const meta = document.createElement("div");
-    meta.className = "meta";
-    meta.innerHTML = `<span>Poster thumbnail until playback.</span>`;
-    card.appendChild(meta);
-
-    const media = document.createElement("div");
-    media.className = "media";
-    const video = document.createElement("video");
-    video.controls = true;
-    video.playsInline = true;
-    video.preload = "metadata";
-    if (item.poster) video.poster = item.poster;
-    const src = document.createElement("source");
-    src.src = item.file;
-    src.type = "video/mp4";
-    video.appendChild(src);
+    const media=document.createElement("div");media.className="media";
+    const video=document.createElement("video");
+    video.src=item.file;
+    video.autoplay=true;
+    video.loop=true;
+    video.muted=true;
+    video.playsInline=true;
     media.appendChild(video);
     card.appendChild(media);
 
-    if (item.note){
-      const cap = document.createElement("p");
-      cap.className = "caption";
-      cap.textContent = item.note;
-      card.appendChild(cap);
-    }
-
-    const links = document.createElement("div");
-    links.className = "links";
-    const dl = document.createElement("a");
-    dl.className = "link";
-    dl.href = item.file;
-    dl.setAttribute("download", "");
-    dl.textContent = "Download MP4";
+    const links=document.createElement("div");links.className="links";
+    const dl=document.createElement("a");dl.className="link";dl.href=item.file;dl.setAttribute("download","");dl.textContent="Download MP4";
     links.appendChild(dl);
     card.appendChild(links);
 
@@ -258,32 +145,26 @@
   }
 
   function renderSection(section){
-    view.innerHTML = "";
-    const h2 = document.createElement("h2");
-    h2.textContent = section.name;
-    view.appendChild(h2);
-
-    const grid = document.createElement("div");
-    grid.className = "grid";
-    section.items.forEach(item => grid.appendChild(makeCard(item)));
+    view.innerHTML="";
+    const h2=document.createElement("h2");h2.textContent=section.name;view.appendChild(h2);
+    const grid=document.createElement("div");grid.className="grid";
+    section.items.forEach(item=>grid.appendChild(makeCard(item)));
     view.appendChild(grid);
   }
 
   function navigate(label){
-    const section = label === ALL_LABEL ? ALL : SECTIONS.find(s => s.name === label) || ALL;
+    const section=label===ALL_LABEL?ALL:SECTIONS.find(s=>s.name===label)||ALL;
     renderTOC(label);
     renderSection(section);
-    history.replaceState(null, "", "#"+encodeURIComponent(label.toLowerCase()));
-    window.scrollTo({ top: 0, behavior: "instant" });
+    history.replaceState(null,"","#"+encodeURIComponent(label.toLowerCase()));
+    window.scrollTo({top:0,behavior:"instant"});
   }
 
-  const initial = decodeURIComponent(location.hash.replace(/^#/, "")).toLowerCase();
-  const startLabel = [ALL_LABEL.toLowerCase(), ...SECTIONS.map(s=>s.name.toLowerCase())].includes(initial)
-    ? (initial === ALL_LABEL.toLowerCase() ? ALL_LABEL : SECTIONS.find(s=>s.name.toLowerCase()===initial).name)
-    : ALL_LABEL;
-
-  renderTOC(startLabel);
-  navigate(startLabel);
+  const initial=decodeURIComponent(location.hash.replace(/^#/,"")).toLowerCase();
+  const startLabel=[ALL_LABEL.toLowerCase(),...SECTIONS.map(s=>s.name.toLowerCase())].includes(initial)
+    ?(initial===ALL_LABEL.toLowerCase()?ALL_LABEL:SECTIONS.find(s=>s.name.toLowerCase()===initial).name)
+    :ALL_LABEL;
+  renderTOC(startLabel);navigate(startLabel);
 </script>
 </body>
 </html>
