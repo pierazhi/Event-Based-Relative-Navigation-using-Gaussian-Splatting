@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Supplementary Material — Gaussian Splatting Reconstructions</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="wrap">
+    <h1>Supplementary Material — Gaussian Splatting Reconstructions</h1>
+    <p>Short clips corresponding to the thesis appendix.</p>
+    <nav class="toc">
+      <a href="#appendix-a">Appendix A — Scene 1</a>
+      <a href="#appendix-b">Appendix B — Scene 2</a>
+      <a href="#appendix-c">Appendix C — Error Visualization</a>
+    </nav>
+  </header>
+
+  <main class="wrap grid">
+    <section id="appendix-a" class="card">
+      <h2>Appendix A — Scene 1</h2>
+      <video controls playsinline preload="metadata" poster="thumbs/scene1.jpg">
+        <source src="videos/scene1.mp4" type="video/mp4" />
+        Your browser can’t play this video. Download <a href="videos/scene1.mp4">scene1.mp4</a>.
+      </video>
+      <p class="caption">Reconstruction of Scene 1 referenced in Appendix A.</p>
+    </section>
+
+    <section id="appendix-b" class="card">
+      <h2>Appendix B — Scene 2</h2>
+      <video controls playsinline preload="metadata" poster="thumbs/scene2.jpg">
+        <source src="videos/scene2.mp4" type="video/mp4" />
+        Your browser can’t play this video. Download <a href="videos/scene2.mp4">scene2.mp4</a>.
+      </video>
+      <p class="caption">Reconstruction of Scene 2 referenced in Appendix B.</p>
+    </section>
+
+    <section id="appendix-c" class="card">
+      <h2>Appendix C — Error Visualization</h2>
+      <video controls playsinline preload="metadata" poster="thumbs/scene3.jpg">
+        <source src="videos/scene3.mp4" type="video/mp4" />
+        Your browser can’t play this video. Download <a href="videos/scene3.mp4">scene3.mp4</a>.
+      </video>
+      <p class="caption">Visualization of reconstruction error referenced in Appendix C.</p>
+    </section>
+  </main>
+
+  <footer class="wrap footer">
+    <p>© <span id="y"></span> Your Name. Hosted on GitHub Pages.</p>
+  </footer>
+  <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+</body>
+</html>
