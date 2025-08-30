@@ -18,248 +18,287 @@
   }
 
   *{box-sizing:border-box}
-  html,body {
-    margin:0;
-    padding:0;
-    background:var(--bg);
-    color:var(--ink);
+  html,body{
+    margin:0; padding:0; background:var(--bg); color:var(--ink);
     font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","SF Pro Text","Helvetica Neue",Arial,sans-serif;
   }
-  a{color:inherit;text-decoration:none}
+  a{color:inherit; text-decoration:none}
 
-  /* ---------- Logo watermark (above bg, below content) ---------- */
-  .logo-overlay {
-    position:fixed;
-    inset:0;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    pointer-events:none;
-    z-index:1; /* sits above background, below content */
+  /* Watermark logo above bg, below content */
+  .logo-overlay{
+    position:fixed; inset:0; display:flex; align-items:center; justify-content:center;
+    pointer-events:none; z-index:1;
   }
-  .logo-overlay::before {
+  .logo-overlay::before{
     content:"";
-    background:url("polilogo.png") no-repeat center center;
-    background-size:1000px auto;   /* adjust size here */
-    width:1000px;
-    height:1000px;
-    opacity:0.25; /* tweak transparency */
+    background:url("polilogo.png") no-repeat center center; /* put your logo file here or e.g. assets/logo_poli.png */
+    background-size:600px auto; /* keep it modest so it doesn't look washed */
+    width:600px; height:600px; opacity:0.22;
   }
 
-  .wrap { position:relative; z-index:2; max-width:1200px; margin:0 auto; padding:20px }
+  .wrap{ position:relative; z-index:2; max-width:1200px; margin:0 auto; padding:20px }
 
-  /* ---------- Header ---------- */
-  header {
-  display:flex;
-  align-items:center;
-  justify-content:center; /* center horizontally */
-  padding:14px 0 16px;
-  position:sticky; top:0; z-index:5;
-  backdrop-filter:blur(6px);
-  background:linear-gradient(180deg, rgba(28,27,58,.9), rgba(28,27,58,.7));
-  border-bottom:1px solid var(--ring);
-}
-.title h1 {
-  margin:0;
-  font-size:22px;
-  color:var(--accent);
-  text-align:center;
-}
+  /* Header with centered title */
+  header{
+    display:flex; align-items:center; justify-content:center;
+    padding:14px 0 16px; position:sticky; top:0; z-index:5;
+    backdrop-filter:blur(6px);
+    background:linear-gradient(180deg, rgba(28,27,58,.9), rgba(28,27,58,.7));
+    border-bottom:1px solid var(--ring);
+  }
+  .title h1{ margin:0; font-size:22px; color:var(--accent); text-align:center }
 
-  /* ---------- Tabs ---------- */
-  .toc{margin-top:10px; display:flex; gap:10px; flex-wrap:wrap}
+  /* Tabs */
+  .toc{ margin-top:10px; display:flex; gap:10px; flex-wrap:wrap }
   .chip{
     padding:8px 14px; border:1px solid var(--ring); border-radius:999px; cursor:pointer;
     font-weight:600; font-size:14px; background:rgba(255,255,255,.02);
     transition:all .15s ease; user-select:none;
   }
-  .chip:hover{border-color:var(--accent); color:var(--accent)}
-  .chip.active{background:var(--accent); color:var(--ink-dark); border-color:var(--accent)}
+  .chip:hover{ border-color:var(--accent); color:var(--accent) }
+  .chip.active{ background:var(--accent); color:var(--ink-dark); border-color:var(--accent) }
 
-  /* ---------- Section ---------- */
-  .section{margin-top:18px}
-  .section h2{margin:8px 0 12px; font-size:20px; color:var(--accent-strong)}
+  /* Sections */
+  .section{ margin-top:18px }
+  .section h2{ margin:8px 0 12px; font-size:20px; color:var(--accent-strong) }
 
-  /* ---------- Grid of videos ---------- */
+  /* Grid: large tiles; two-up on wide screens */
   .grid{
-    display:grid;
-    grid-template-columns:1fr;
-    gap:24px;
-    margin-top:14px;
+    display:grid; grid-template-columns:1fr; gap:24px; margin-top:14px;
   }
-  @media (min-width: 1200px){
-    .grid{ grid-template-columns: 1fr 1fr }
-  }
+  @media (min-width:1200px){ .grid{ grid-template-columns:1fr 1fr } }
 
   .card{
     border:1px solid var(--ring); background:var(--card);
-    border-radius:16px; padding:16px;
-    display:flex; flex-direction:column; gap:12px;
-    transition:transform .08s ease, border-color .15s ease;
-    box-shadow:0 2px 8px rgba(0,0,0,.25);
+    border-radius:16px; padding:16px; display:flex; flex-direction:column; gap:12px;
+    transition:transform .08s ease, border-color .15s ease; box-shadow:0 2px 8px rgba(0,0,0,.25);
   }
-  .card:hover{transform:translateY(-2px); border-color:var(--accent)}
+  .card:hover{ transform:translateY(-2px); border-color:var(--accent) }
 
-  .name{font-weight:700;font-size:17px;margin:0}
-  .badge{font-size:12px;color:var(--ink-dark);background:var(--accent);
-    border-radius:999px;padding:4px 8px;font-weight:700}
+  .name{ font-weight:700; font-size:17px; margin:0 }
+  .head-right{ display:flex; align-items:center; gap:6px }
+  .badge{ font-size:12px; color:var(--ink-dark); background:var(--accent); border-radius:999px; padding:4px 8px; font-weight:700 }
 
+  /* Icon button for forced download */
+  .icon-btn{
+    display:inline-flex; align-items:center; justify-content:center;
+    width:28px; height:28px; border-radius:6px; cursor:pointer;
+    border:1px solid var(--ring); background:rgba(255,255,255,.05); color:var(--ink);
+    transition:all .15s ease; padding:0;
+  }
+  .icon-btn:hover{ border-color:var(--accent); color:var(--accent); background:rgba(255,255,255,.08) }
+  .icon-btn svg{ width:16px; height:16px; display:block }
+
+  /* Media: start with safe ratio; JS sets the true ratio on metadata */
   .media{
-    border-radius:12px; overflow:hidden;
-    background:#0f0f2a; border:1px solid var(--ring);
-    aspect-ratio:16/9;
-    display:flex; align-items:center; justify-content:center;
+    border-radius:12px; overflow:hidden; background:#0f0f2a; border:1px solid var(--ring);
+    aspect-ratio:16/9; display:flex; align-items:center; justify-content:center;
   }
-  .media video{width:100%; height:100%; object-fit:cover; display:block}
+  /* Default: fill tile (may crop) */
+  .media video{ width:100%; height:100%; object-fit:cover; display:block }
+  /* “Contain” mode for precise videos (no crop, letterbox if needed) */
+  .media.fit-contain video{ object-fit:contain; background:#000 }
 
-  .controlsRow{display:flex; gap:10px; flex-wrap:wrap}
-  .link{display:inline-flex; align-items:center; gap:6px;
-    padding:8px 12px; border:1px solid var(--ring); border-radius:12px;
-    font-size:13px; background:rgba(255,255,255,.02);
-    transition:all .15s ease;}
-  .link:hover{border-color:var(--accent); color:var(--accent)}
-
-  .foot{opacity:.65;font-size:12px;margin:22px 0 6px;text-align:center}
+  .foot{ opacity:.65; font-size:12px; margin:22px 0 6px; text-align:center }
 </style>
 </head>
 <body>
   <div class="logo-overlay"></div>
   <div class="wrap">
-    <header>
-      <div class="title"><h1>Supplementary Material</h1></div>
-    </header>
+    <header><div class="title"><h1>Supplementary Material</h1></div></header>
 
     <nav class="toc" id="toc"></nav>
-
     <div id="sectionView" class="section"></div>
 
-    <p class="foot">Clips autoplay muted and loop. Use each video’s controls to pause or scrub. Download links are provided for offline viewing.</p>
+    <p class="foot">Clips autoplay, loop, and are muted. Pause or scrub with the native controls. The arrow button downloads the MP4 directly.</p>
   </div>
 
 <script>
-  // ---------- EDIT THIS DATA ----------
+  // Data. Mark sections that should never crop with fit:"contain"
   const SECTIONS = [
     {
       name: "Blender",
       items: [
-        { title: "SLAM", file: "videos/est_sequence_SLAM.mp4"},
-        { title: "Orbit", file: "videos/est_sequence_approach.mp4"}
+        { title: "SLAM",   file: "videos/est_sequence_SLAM.mp4" },
+        { title: "Orbit",  file: "videos/est_sequence_approach.mp4" }
       ]
     },
     {
       name: "Seenic",
       items: [
-        { title: "Sequence A", file: "videos/seenic_a.mp4"},
-        { title: "Sequence B", file: "videos/seenic_b.mp4"}
+        { title: "Sequence A", file: "videos/seenic_a.mp4" },
+        { title: "Sequence B", file: "videos/seenic_b.mp4" }
       ]
     },
     {
       name: "EMS",
       items: [
-        { title: "EMS 69", file: "videos/EMS_69.mp4"},
-        { title: "EMS 100", file: "videos/EMS_100.mp4"},
-        { title: "EMS 479", file: "videos/EMS_479.mp4"}
+        { title: "EMS 69",  file: "videos/EMS_69.mp4" },
+        { title: "EMS 100", file: "videos/EMS_100.mp4" },
+        { title: "EMS 479", file: "videos/EMS_479.mp4" }
       ]
     },
     {
       name: "Elope",
       items: [
-        { title: "ELOPE 0000", file: "videos/reconstructed_0003.mp4"},
-        { title: "ELOPE 0008", file: "videos/reconstructed_0007.mp4"},
-        { title: "ELOPE 0013", file: "videos/reconstructed_0013.mp4"},
-        { title: "ELOPE 0015", file: "videos/reconstructed_0015.mp4"},
-        { title: "ELOPE 0016", file: "videos/reconstructed_0016.mp4"},
+        { title: "ELOPE 0000", file: "videos/reconstructed_0003.mp4" },
+        { title: "ELOPE 0008", file: "videos/reconstructed_0007.mp4" },
+        { title: "ELOPE 0013", file: "videos/reconstructed_0013.mp4" },
+        { title: "ELOPE 0015", file: "videos/reconstructed_0015.mp4" },
+        { title: "ELOPE 0016", file: "videos/reconstructed_0016.mp4" }
       ]
     },
     {
       name: "3D Scene Visualization - Splats",
+      fit:  "contain",  // no cropping for these high-res captures
       items: [
-        { title: "Orbit Sequence", file: "videos/splats_blender.mp4"},
-        { title: "SLAM Sequence", file: "videos/splats_suzaku_slam.mp4"},
-        { title: "Approach Sequence", file: "videos/splats_suzaku_approach.mp4"},
-        { title: "EMS 69", file: "videos/splats_EMS_69.mp4"},
-        { title: "Nerfstudio", file: "videos/regular_3DGS.mp4"},
+        { title: "Orbit Sequence",    file: "videos/splats_blender.mp4" },
+        { title: "SLAM Sequence",     file: "videos/splats_suzaku_slam.mp4" },
+        { title: "Approach Sequence", file: "videos/splats_suzaku_approach.mp4" },
+        { title: "EMS 69",            file: "videos/splats_EMS_69.mp4" },
+        { title: "Nerfstudio",        file: "videos/regular_3DGS.mp4" }
       ]
     }
   ];
-  // ---------- STOP EDITING ----------
 
   const ALL = { name:"All", items:SECTIONS.flatMap(s=>s.items) };
-  const TABS = [ALL,...SECTIONS];
+  const TABS = [ALL, ...SECTIONS];
 
-  const toc=document.getElementById("toc");
-  const view=document.getElementById("sectionView");
+  const toc  = document.getElementById("toc");
+  const view = document.getElementById("sectionView");
 
-  function chip(label,active){
-    const el=document.createElement("div");
-    el.className="chip"+(active?" active":"");
-    el.textContent=label;
-    el.onclick=()=>navigate(label);
+  function chip(label, active){
+    const el = document.createElement("div");
+    el.className = "chip" + (active ? " active" : "");
+    el.textContent = label;
+    el.onclick = () => navigate(label);
     return el;
   }
 
   function renderTOC(active){
-    toc.innerHTML="";
-    TABS.forEach(s=>toc.appendChild(chip(s.name, active===s.name)));
+    toc.innerHTML = "";
+    TABS.forEach(s => toc.appendChild(chip(s.name, active === s.name)));
   }
 
-  function makeCard(item){
-    const card=document.createElement("article");
-    card.className="card";
+  function svgDownloadIcon(){
+    const svg = document.createElementNS("http://www.w3.org/2000/svg","svg");
+    svg.setAttribute("viewBox","0 0 24 24");
+    svg.setAttribute("aria-hidden","true");
+    svg.innerHTML = `
+      <path fill="currentColor"
+        d="M12 3a1 1 0 0 1 1 1v8.586l2.293-2.293a1 1 0 1 1 1.414 1.414l-4.007 4.007a1 1 0 0 1-1.414 0L7.279 11.707a1 1 0 1 1 1.414-1.414L11 12.586V4a1 1 0 0 1 1-1Z"/>
+      <path fill="currentColor"
+        d="M5 18a1 1 0 0 1 1-1h12a1 1 0 1 1 0 2H6a1 1 0 0 1-1-1Z"/>`;
+    return svg;
+  }
 
-    const head=document.createElement("div");
-    head.style.display="flex";head.style.justifyContent="space-between";head.style.alignItems="center";
-    const name=document.createElement("h3");name.className="name";name.textContent=item.title;
-    const badge=document.createElement("div");badge.className="badge";badge.textContent="MP4";
-    head.appendChild(name);head.appendChild(badge);
+  async function forceDownload(url, suggestedName){
+    const res = await fetch(url, { credentials: 'same-origin' });
+    if (!res.ok) throw new Error(res.status + " " + res.statusText);
+    const blob = await res.blob();
+    const objUrl = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = objUrl;
+    a.download = suggestedName || "video.mp4";
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+    URL.revokeObjectURL(objUrl);
+  }
+
+  function makeCard(item, fitMode){
+    const card = document.createElement("article");
+    card.className = "card";
+
+    // Header row
+    const head = document.createElement("div");
+    head.style.display = "flex";
+    head.style.justifyContent = "space-between";
+    head.style.alignItems = "center";
+
+    const name = document.createElement("h3");
+    name.className = "name";
+    name.textContent = item.title;
+
+    const right = document.createElement("div");
+    right.className = "head-right";
+
+    const badge = document.createElement("div");
+    badge.className = "badge";
+    badge.textContent = "MP4";
+
+    const dlBtn = document.createElement("button");
+    dlBtn.className = "icon-btn";
+    dlBtn.type = "button";
+    dlBtn.title = "Download MP4";
+    dlBtn.setAttribute("aria-label","Download MP4");
+    dlBtn.appendChild(svgDownloadIcon());
+    dlBtn.onclick = async (e) => {
+      e.preventDefault();
+      try {
+        const safe = (item.title || "video").replace(/[\\/:*?"<>|]+/g, "_") + ".mp4";
+        await forceDownload(item.file, safe);
+      } catch (err) {
+        alert("Download failed: " + err.message);
+      }
+    };
+
+    right.appendChild(badge);
+    right.appendChild(dlBtn);
+
+    head.appendChild(name);
+    head.appendChild(right);
     card.appendChild(head);
 
-    const media=document.createElement("div");media.className="media";
-    const video=document.createElement("video");
-    video.src=item.file;
-    video.autoplay=true;
-    video.loop=true;
-    video.muted=true;
-    video.playsInline=true;
-    video.controls=true; // individual pause/seek
+    // Video
+    const media = document.createElement("div");
+    media.className = "media" + (fitMode === "contain" ? " fit-contain" : "");
+    const video = document.createElement("video");
+    video.src = item.file;
+    video.autoplay = true;
+    video.loop = true;
+    video.muted = true;
+    video.playsInline = true;
+    video.controls = true;
+    video.addEventListener("loadedmetadata", () => {
+      if (video.videoWidth && video.videoHeight) {
+        media.style.aspectRatio = (video.videoWidth / video.videoHeight).toString();
+      }
+    });
     media.appendChild(video);
     card.appendChild(media);
-
-    const row=document.createElement("div");row.className="controlsRow";
-    const dl=document.createElement("a");dl.className="link";dl.href=item.file;dl.setAttribute("download","");dl.textContent="Download MP4";
-    row.appendChild(dl);
-    card.appendChild(row);
 
     return card;
   }
 
   function renderSection(section){
-    view.innerHTML="";
-    const h2=document.createElement("h2");h2.textContent=section.name;view.appendChild(h2);
-    const grid=document.createElement("div");grid.className="grid";
-    section.items.forEach(item=>grid.appendChild(makeCard(item)));
+    view.innerHTML = "";
+    const h2 = document.createElement("h2");
+    h2.textContent = section.name;
+    view.appendChild(h2);
+
+    const grid = document.createElement("div");
+    grid.className = "grid";
+    const fitMode = section.fit || "cover";
+    section.items.forEach(item => grid.appendChild(makeCard(item, fitMode)));
     view.appendChild(grid);
   }
 
   function navigate(label){
-    const section=TABS.find(s=>s.name===label)||ALL;
+    const section = TABS.find(s => s.name === label) || ALL;
     renderTOC(label);
     renderSection(section);
-    history.replaceState(null,"","#"+encodeURIComponent(label.toLowerCase()));
-    window.scrollTo({top:0,behavior:"instant"});
+    history.replaceState(null, "", "#"+encodeURIComponent(label.toLowerCase()));
+    window.scrollTo({ top: 0, behavior: "instant" });
   }
 
-  const initial=decodeURIComponent(location.hash.replace(/^#/,"")).toLowerCase();
-  const startLabel=TABS.map(s=>s.name.toLowerCase()).includes(initial)
-    ?TABS.find(s=>s.name.toLowerCase()===initial).name
-    :"All";
+  const initial    = decodeURIComponent(location.hash.replace(/^#/, "")).toLowerCase();
+  const startLabel = TABS.map(s => s.name.toLowerCase()).includes(initial)
+      ? TABS.find(s => s.name.toLowerCase() === initial).name
+      : "All";
 
   renderTOC(startLabel);
   navigate(startLabel);
 </script>
 </body>
 </html>
-
-
-
-
