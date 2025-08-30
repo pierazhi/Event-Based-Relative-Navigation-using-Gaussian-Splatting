@@ -39,10 +39,10 @@
   }
   .logo-overlay::before {
     content:"";
-    background:url("assets/logo_poli.png") no-repeat center center;
-    background-size:260px auto;   /* adjust size here */
-    width:260px;
-    height:190px;
+    background:url("polilogo.png") no-repeat center center;
+    background-size:1000px auto;   /* adjust size here */
+    width:1000px;
+    height:1000px;
     opacity:0.25; /* tweak transparency */
   }
 
@@ -50,14 +50,21 @@
 
   /* ---------- Header ---------- */
   header {
-    display:flex; align-items:center; justify-content:space-between;
-    padding:14px 0 16px;
-    position:sticky; top:0; z-index:5;
-    backdrop-filter:blur(6px);
-    background:linear-gradient(180deg, rgba(28,27,58,.9), rgba(28,27,58,.7));
-    border-bottom:1px solid var(--ring);
-  }
-  .title h1{margin:0;font-size:22px;color:var(--accent)}
+  display:flex;
+  align-items:center;
+  justify-content:center; /* center horizontally */
+  padding:14px 0 16px;
+  position:sticky; top:0; z-index:5;
+  backdrop-filter:blur(6px);
+  background:linear-gradient(180deg, rgba(28,27,58,.9), rgba(28,27,58,.7));
+  border-bottom:1px solid var(--ring);
+}
+.title h1 {
+  margin:0;
+  font-size:22px;
+  color:var(--accent);
+  text-align:center;
+}
 
   /* ---------- Tabs ---------- */
   .toc{margin-top:10px; display:flex; gap:10px; flex-wrap:wrap}
@@ -149,8 +156,9 @@
     {
       name: "EMS",
       items: [
-        { title: "EMS 100", file: "videos/EMS_69.mp4"},
-        { title: "EMS 479", file: "videos/EMS_100.mp4"}
+        { title: "EMS 69", file: "videos/EMS_69.mp4"},
+        { title: "EMS 100", file: "videos/EMS_100.mp4"},
+        { title: "EMS 479", file: "videos/EMS_479.mp4"}
       ]
     },
     {
