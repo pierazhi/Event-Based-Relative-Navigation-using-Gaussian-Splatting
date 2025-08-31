@@ -11,5 +11,3 @@ This repository hosts the supplementary videos for my thesis work on **event-bas
 > Videos are organized by dataset (Blender, SEENIC, EMS, ELOPE, 3D Scene Visualization).  
 
 ---
-
-## 📂 Repository Structure
