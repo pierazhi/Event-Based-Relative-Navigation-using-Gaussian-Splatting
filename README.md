@@ -1,7 +1,7 @@
 # Supplementary Material – Master’s Thesis
 
 Welcome!  
-This repository hosts the supplementary videos for my thesis work on **event-based visual odometry and Gaussian splatting for spacecraft docking**.
+This repository hosts the supplementary videos for my thesis work on **event-based relative navigation and Gaussian splatting for spacecraft docking**.
 
 ---
 
